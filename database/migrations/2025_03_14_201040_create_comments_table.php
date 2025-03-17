@@ -14,12 +14,11 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('post_id')->constrained();
-            $table->string('author');
+            $table->foreignId('user_id')->constrained(); // Se usar autenticação
             $table->text('content');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */
